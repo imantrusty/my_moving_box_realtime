@@ -1,0 +1,52 @@
+
+<html>
+    <div id="my_box_realtime" style= "background-color: red; position: absolute; right: 70; bottom: 70; min-width: 100px; min-height: 100px"></div>
+    <script type="text/javascript">
+
+
+
+/*
+NOTES:
+Second Solution, 
+setInterval box can be declared separate and an if/else statment can be used.
+
+
+let move = document.getElementById("my_box_realtime").style;
+let position = 70;
+let box = window.setInterval(animateBox, 50);
+
+function animateBox(){
+if (position === 0){
+    clearInterval(animateBox);
+}
+else {
+    move.right = position + "px";
+    move.bottom = position + "px";
+    position -= 1;
+}
+
+}
+
+*/
+
+
+
+    
+   
+    let move = document.getElementById("my_box_realtime").style;    //Getting ElementID from div box
+    let position = 70;                                              // Setting position to match bottom and right position in div box
+    let animateBox = window.setInterval(function(){                 // A function can be declared. Window sets the size of browser you are in. The setInterval() method calls a function or evaluates an expression at specified intervals (in milliseconds).
+        position -= 1;                                              // at the position of 70, decrement by 1 -> 70, 69, 68, 67, 66...
+        move.right = position + "px";                               // This tells the position that it is moving at every pixel
+        move.bottom = position + "px";
+
+        if (position === 0){                                        // If the position i finally at 0
+            clearInterval(animateBox);                              // stop the moving box. clearInterval is a method to end setInterval
+        }
+
+    }, 50);                                                         // milliseconds
+
+
+
+    </script>
+</html>
